@@ -1,0 +1,16 @@
+{
+  "name": "Essentials",
+  "author": "Kelly Ford",
+  "description": "Only the sounds that tell you something you might otherwise miss: a chat finishing, needing you or failing, a message that didn't send, the service having trouble, a usage warning, and a message from another session. Everything else is quiet, including tools and your own messages.",
+  "license": "CC0-1.0",
+  "events": {
+    "ReplyFinished": "builtin:softbell/reply",
+    "OtherChatFinished": "builtin:softbell/otherreply",
+    "NeedsYou": "builtin:softbell/needsyou",
+    "TurnFailed": "builtin:glass/turnfailed",
+    "MessageNotSent": "builtin:glass/notsent",
+    "ServiceTrouble": "builtin:wood/trouble",
+    "UsageWarning": "builtin:wood/warning",
+    "PeerMessage": "builtin:softbell/peer"
+  }
+}
