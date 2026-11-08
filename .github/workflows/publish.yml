@@ -1,0 +1,84 @@
+name: Publish gallery
+
+# Builds, signs and publishes the gallery from main only. Three jobs, so the signing key never shares
+# a runner with contributors' sound files or with anything pip installed:
+#   build   no secrets. Validates, decodes every sound, builds the files and the unsigned index.
+#   sign    the gallery-signing environment, which admits main alone. Only openssl and the shell: it
+#           signs the exact bytes of index.json into index.signed and touches nothing else.
+#   deploy  publishes to GitHub Pages.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0  # v7.1.0
+        with:
+          python-version: "3.12"
+      # Every package, and app-kit's archive, is checked against its hash.
+      - run: pip install --require-hashes -r tools/build-requirements.txt
+      - run: pip install --require-hashes --no-build-isolation -r tools/requirements.txt
+      - run: python -m pytest -q -p no:cacheprovider --noconftest tests
+      - run: python tools/gallery.py build --out site
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9  # v7.0.2
+        with:
+          name: unsigned-site
+          path: site
+          retention-days: 1
+
+  sign:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: gallery-signing
+    steps:
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333  # v8.0.2
+        with:
+          name: unsigned-site
+          path: site
+      - name: Sign the index
+        env:
+          GALLERY_SIGNING_KEY: ${{ secrets.GALLERY_SIGNING_KEY }}
+        run: |
+          set -euo pipefail
+          umask 077
+          key=$(mktemp)
+          trap 'rm -f "$key" sig.der' EXIT
+          printf '%s\n' "$GALLERY_SIGNING_KEY" > "$key"
+          # Each app's index.signed: the base64 signature on one line, then the exact bytes it signs.
+          for index in site/*/index.json; do
+            dir=$(dirname "$index")
+            openssl dgst -sha256 -sign "$key" -out sig.der "$index"
+            { base64 -w0 sig.der; printf '\n'; cat "$index"; } > "$dir/index.signed"
+            rm "$index"
+          done
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9  # v5.0.0
+        with:
+          path: site
+
+  deploy:
+    needs: sign
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346  # v5.0.1

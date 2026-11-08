@@ -1,0 +1,4 @@
+# What building app-kit needs (its pyproject.toml asks for setuptools>=77). Installed first, with hashes, so
+# app-kit can be built with --no-build-isolation, and pip never fetches an unhashed build tool. Made by:
+#   uv pip compile tools/build-requirements.in --universal --python-version 3.12 --generate-hashes -o tools/build-requirements.txt
+setuptools==80.9.0

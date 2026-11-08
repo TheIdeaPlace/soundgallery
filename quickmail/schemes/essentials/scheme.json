@@ -1,0 +1,16 @@
+{
+  "name": "Essentials",
+  "author": "Kelly Ford",
+  "description": "Only the sounds that tell you something you might otherwise miss: new mail, a send that failed, an action that failed, and the connection dropping and coming back. Everything else is quiet.",
+  "license": "CC0-1.0",
+  "events": {
+    "SendFailed": "builtin:glass/failed",
+    "NewMail": "builtin:softbell/arrived",
+    "WatchedMail": "builtin:softbell/attention",
+    "ActionFailed": "builtin:glass/error",
+    "ConnectionLost": "builtin:wood/disconnected",
+    "ConnectionRestored": "builtin:wood/connected",
+    "CalendarReminder": "builtin:softbell/reminder",
+    "RuleMatched": "builtin:softbell/matched"
+  }
+}

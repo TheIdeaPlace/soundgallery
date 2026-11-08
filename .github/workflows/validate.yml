@@ -1,0 +1,48 @@
+name: Validate schemes
+
+# Every pull request, including from forks. It reads no secrets and writes nothing: a proposed
+# scheme is checked here before anyone listens to it, and again on main before it is published.
+# pull_request (never pull_request_target), so a fork's code runs with a read-only token.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Use the base branch's tools, tests and workflows
+        # Before anything runs: a proposed scheme's own code (a conftest.py, a changed tool) must never run
+        # here, or it could fake a passing check. The scheme folders it adds are kept. Files are removed
+        # first, since checking out the base alone wouldn't remove a file the pull request added.
+        if: github.event_name == 'pull_request' && github.event.pull_request.user.login != 'kellylford'
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          rm -rf tools tests .github
+          git checkout "$BASE" -- tools tests .github
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0  # v7.1.0
+        with:
+          python-version: "3.12"
+      # Every package, and app-kit's archive, is checked against its hash. pip is run as its own command,
+      # not python -m pip, so nothing in the checkout's top folder can be imported before the paths are checked.
+      - run: pip install --require-hashes -r tools/build-requirements.txt
+      - run: pip install --require-hashes --no-build-isolation -r tools/requirements.txt
+      - name: A proposed scheme changes only scheme folders
+        # Run by the base branch's gallery.py, restored above.
+        if: github.event_name == 'pull_request' && github.event.pull_request.user.login != 'kellylford'
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD: ${{ github.event.pull_request.head.sha }}
+        run: python tools/gallery.py check-paths "$BASE" "$HEAD"
+      - run: python -m pytest -q -p no:cacheprovider --noconftest tests
+      - run: python tools/gallery.py validate
+      - run: python tools/gallery.py build --out site
