@@ -80,7 +80,7 @@ file as it is. Its `format` and `app` fields are allowed, as long as `app` match
 | Key | When it plays | Its own sound |
 |---|---|---|
 | `ToolRan` | A tool ran | `tool` |
-| `FileChanged` | A file changed | `edit` |
+| `FileChanged` | A file changed | `write` |
 | `StillWorking` | A turn is still working | `working` |
 | `MessageSent` | A message was sent | `send` |
 | `MessageQueued` | A message was queued | `queue` |
@@ -93,6 +93,7 @@ file as it is. Its `format` and `app` fields are allowed, as long as `app` match
 | `OtherChatFinished` | Another chat finished | `otherreply` |
 | `AsideAnswered` | Ask Aside answered | `aside` |
 | `NeedsYou` | A chat needs you | `needsyou` |
+| `AnswerSent` | You sent an answer to a chat that needed you | `answer` |
 | `TurnFailed` | A turn failed | `turnfailed` |
 | `MessageNotSent` | A message couldn't be sent | `notsent` |
 | `AsideNotAnswered` | Ask Aside couldn't answer | `asidefailed` |
