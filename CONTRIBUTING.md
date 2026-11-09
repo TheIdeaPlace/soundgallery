@@ -87,7 +87,7 @@ file as it is. Its `format` and `app` fields are allowed, as long as `app` match
 | `MessageSteered` | A message was steered into the running turn | `steer` |
 | `SteerTaken` | Claude took a steered message in | `steertaken` |
 | `QueuedMessageSent` | A queued message went on its own | `queuesent` |
-| `QueuedMessageDeleted` | You deleted a queued message | `queuedelete` |
+| `QueuedMessageDeleted` | You removed a queued message | `queuedelete` |
 | `TurnStopped` | You stopped a turn | `stop` |
 | `ReplyFinished` | A reply finished | `reply` |
 | `OtherChatFinished` | Another chat finished | `otherreply` |
