@@ -16,6 +16,7 @@
     "TurnStopped": "custom:TurnStopped.wav",
     "ReplyFinished": "custom:ReplyFinished.wav",
     "OtherChatFinished": "custom:OtherChatFinished.wav",
+    "ReplyHandedOn": "custom:ReplyHandedOn.wav",
     "AsideAnswered": "custom:AsideAnswered.wav",
     "NeedsYou": "custom:NeedsYou.wav",
     "AnswerSent": "custom:AnswerSent.wav",

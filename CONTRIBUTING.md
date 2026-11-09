@@ -91,6 +91,7 @@ file as it is. Its `format` and `app` fields are allowed, as long as `app` match
 | `TurnStopped` | You stopped a turn | `stop` |
 | `ReplyFinished` | A reply finished | `reply` |
 | `OtherChatFinished` | Another chat finished | `otherreply` |
+| `ReplyHandedOn` | An agent conversation handed one agent's reply to the next by itself | `handon` |
 | `AsideAnswered` | Ask Aside answered | `aside` |
 | `NeedsYou` | A chat needs you | `needsyou` |
 | `AnswerSent` | You sent an answer to a chat that needed you | `answer` |
