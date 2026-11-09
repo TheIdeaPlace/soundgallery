@@ -1,0 +1,22 @@
+{
+  "name": "Maya Voicing Glass",
+  "author": "Kelly Ford",
+  "description": "Each event's Glass sound, then Maya saying what it was.",
+  "license": "CC0-1.0",
+  "events": {
+    "MessageSent": "custom:MessageSent.wav",
+    "MessageQueued": "custom:MessageQueued.wav",
+    "SendFailed": "custom:SendFailed.wav",
+    "NewMail": "custom:NewMail.wav",
+    "WatchedMail": "custom:WatchedMail.wav",
+    "ActionFailed": "custom:ActionFailed.wav",
+    "ConnectionLost": "custom:ConnectionLost.wav",
+    "ConnectionRestored": "custom:ConnectionRestored.wav",
+    "CalendarReminder": "custom:CalendarReminder.wav",
+    "MessageDeleted": "custom:MessageDeleted.wav",
+    "MessageArchived": "custom:MessageArchived.wav",
+    "MessageMoved": "custom:MessageMoved.wav",
+    "TrashEmptied": "custom:TrashEmptied.wav",
+    "RuleMatched": "custom:RuleMatched.wav"
+  }
+}
