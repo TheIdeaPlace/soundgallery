@@ -1,0 +1,30 @@
+{
+  "name": "River Voicing Glass",
+  "author": "Kelly Ford",
+  "description": "Each event's Glass sound, then River saying what it was.",
+  "license": "CC0-1.0",
+  "events": {
+    "ToolRan": "custom:ToolRan.wav",
+    "FileChanged": "custom:FileChanged.wav",
+    "StillWorking": "custom:StillWorking.wav",
+    "MessageSent": "custom:MessageSent.wav",
+    "MessageQueued": "custom:MessageQueued.wav",
+    "MessageSteered": "custom:MessageSteered.wav",
+    "SteerTaken": "custom:SteerTaken.wav",
+    "QueuedMessageSent": "custom:QueuedMessageSent.wav",
+    "QueuedMessageDeleted": "custom:QueuedMessageDeleted.wav",
+    "TurnStopped": "custom:TurnStopped.wav",
+    "ReplyFinished": "custom:ReplyFinished.wav",
+    "OtherChatFinished": "custom:OtherChatFinished.wav",
+    "AsideAnswered": "custom:AsideAnswered.wav",
+    "NeedsYou": "custom:NeedsYou.wav",
+    "AnswerSent": "custom:AnswerSent.wav",
+    "TurnFailed": "custom:TurnFailed.wav",
+    "MessageNotSent": "custom:MessageNotSent.wav",
+    "AsideNotAnswered": "custom:AsideNotAnswered.wav",
+    "ServiceTrouble": "custom:ServiceTrouble.wav",
+    "UsageWarning": "custom:UsageWarning.wav",
+    "Compacted": "custom:Compacted.wav",
+    "PeerMessage": "custom:PeerMessage.wav"
+  }
+}
