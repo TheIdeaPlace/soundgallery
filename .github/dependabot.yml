@@ -1,0 +1,37 @@
+version: 2
+updates:
+  # Versions of the actions used in .github/workflows/*.yml.
+  #
+  # Grouped deliberately: a runtime-wide move like the Node 20 -> 24
+  # migration touches every action at once, and ungrouped that arrives as
+  # one PR per action. As a single PR it is one review and one merge, and
+  # the workflows never sit half-migrated between merges.
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: ci
+    groups:
+      actions:
+        patterns:
+          - "*"
+
+  # tools/requirements.in and tools/build-requirements.in, compiled with
+  # hashes into the matching .txt files that CI installs with
+  # --require-hashes.
+  #
+  # One group: the tools have no UI toolkit, just cryptography, pytest and
+  # setuptools, so every bump is a routine one that the validate workflow
+  # checks in full. theideaplace-appkit is pinned to an app-kit commit by
+  # URL, so Dependabot leaves it alone.
+  - package-ecosystem: pip
+    directory: "/tools"
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: deps
+    groups:
+      python:
+        patterns:
+          - "*"
