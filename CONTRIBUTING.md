@@ -73,6 +73,7 @@ file as it is. Its `format` and `app` fields are allowed, as long as `app` match
 | `MessageArchived` | A message was archived | `filed` |
 | `MessageMoved` | A message was moved | `moved` |
 | `TrashEmptied` | Trash was emptied | `emptied` |
+| `ListEnd` | You moved past the top or bottom of the message list | `edge` |
 | `RuleMatched` | A rule set to play its default sound matched | `matched` |
 
 ### The Chat Place's events
