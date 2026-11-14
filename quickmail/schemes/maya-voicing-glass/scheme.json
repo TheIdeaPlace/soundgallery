@@ -17,6 +17,7 @@
     "MessageArchived": "custom:MessageArchived.wav",
     "MessageMoved": "custom:MessageMoved.wav",
     "TrashEmptied": "custom:TrashEmptied.wav",
+    "ListEnd": "custom:ListEnd.wav",
     "RuleMatched": "custom:RuleMatched.wav"
   }
 }
