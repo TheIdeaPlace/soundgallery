@@ -75,6 +75,8 @@ file as it is. Its `format` and `app` fields are allowed, as long as `app` match
 | `TrashEmptied` | Trash was emptied | `emptied` |
 | `ListEnd` | You moved past the top or bottom of the message list | `edge` |
 | `RuleMatched` | A rule set to play its default sound matched | `matched` |
+| `AddressSuggestions` | Address suggestions appeared below To, Cc, Bcc or Invite (QuickMail's own schemes leave it silent, since screen readers sound it) | `suggest` |
+| `AddressInserted` | An address from the suggestions went into the field | `inserted` |
 
 ### The Chat Place's events
 
