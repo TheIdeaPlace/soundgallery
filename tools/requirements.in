@@ -2,8 +2,8 @@
 #   uv pip compile tools/requirements.in --universal --python-version 3.12 --generate-hashes -o tools/requirements.txt
 # and installed with: pip install --require-hashes --no-build-isolation -r tools/requirements.txt
 # (after tools/build-requirements.txt, which app-kit's build needs).
-cryptography==46.0.3
-pytest==8.4.2
+cryptography==50.0.2
+pytest==9.2.0
 # The scheme rules every Idea Place app shares (sounds/SCHEMES.md), pinned to one commit, and to the hash of
 # GitHub's archive of it. GitHub has kept archive bytes stable, but doesn't promise to; if the hash ever stops
 # matching, download the archive, check it's the same commit, and update the hash.
