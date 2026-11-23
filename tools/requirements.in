@@ -7,4 +7,4 @@ pytest==8.4.2
 # The scheme rules every Idea Place app shares (sounds/SCHEMES.md), pinned to one commit, and to the hash of
 # GitHub's archive of it. GitHub has kept archive bytes stable, but doesn't promise to; if the hash ever stops
 # matching, download the archive, check it's the same commit, and update the hash.
-theideaplace-appkit @ https://github.com/TheIdeaPlace/app-kit/archive/44752505b92a416a1e927866f4466afc6f89bed7.zip#subdirectory=python
+theideaplace-appkit @ https://github.com/TheIdeaPlace/app-kit/archive/11512c594a800938279b0dad16912f81edb7da3a.zip#subdirectory=python

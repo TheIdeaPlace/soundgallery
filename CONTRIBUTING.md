@@ -105,6 +105,7 @@ file as it is. Its `format` and `app` fields are allowed, as long as `app` match
 | `UsageWarning` | A usage or context warning | `warning` |
 | `Compacted` | The conversation was compacted | `compacted` |
 | `PeerMessage` | A message came from another session | `peer` |
+| `MessageSuggested` | Claude's suggested next message was put in your message box | `suggested` |
 
 The Chat Place's built-in sounds are its own, one per event (app-kit's `sounds/thechatplace/`);
 none is QuickMail's. A scheme for The Chat Place uses these names.
