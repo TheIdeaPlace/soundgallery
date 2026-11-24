@@ -27,6 +27,7 @@
     "UsageWarning": "custom:UsageWarning.wav",
     "Compacted": "custom:Compacted.wav",
     "PeerMessage": "custom:PeerMessage.wav",
-    "MessageSuggested": "custom:MessageSuggested.wav"
+    "PromptSuggested": "custom:PromptSuggested.wav",
+    "ListEnd": "custom:ListEnd.wav"
   }
 }
