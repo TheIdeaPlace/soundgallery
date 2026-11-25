@@ -186,6 +186,6 @@ pytest==8.4.2 \
     --hash=sha256:86c0d0b93306b961d58d62a4db4879f27fe25513d4b969df351abdddb3c30e01 \
     --hash=sha256:872f880de3fc3a5bdc88a11b39c9710c3497a547cfa9320bc3c5e62fbf272e79
     # via -r tools/requirements.in
-theideaplace-appkit @ https://github.com/TheIdeaPlace/app-kit/archive/44752505b92a416a1e927866f4466afc6f89bed7.zip#subdirectory=python \
-    --hash=sha256:e5fc1d509d96d5fb0cf5626046b7d45c258dfd13e3ab5e74cc5487d7135dca11
+theideaplace-appkit @ https://github.com/TheIdeaPlace/app-kit/archive/9a23a6312068c71f0a4371c1ea80b9a20b81fdc6.zip#subdirectory=python \
+    --hash=sha256:2afc5eaab59ba374398a2fb7d21b159787f6d3370ea63e22068b05e63a3bae67
     # via -r tools/requirements.in

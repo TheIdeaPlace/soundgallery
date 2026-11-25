@@ -8,5 +8,5 @@ app-kit's `sounds/generate.py`. The voice is Kokoro-82M's `af_river`, an Apache-
 locally. No recordings of people were used.
 
 Where River said an event's name wrongly, she says a few different words: "A chat needs you" for
-Needs you, "File, changed" for File changed, and "Answer is sent" for Answer sent. Every file was
+Needs you, "File, changed" for File changed, "Answer is sent" for Answer sent, and "End of the list" for Reached the end of a list (she drops the d of "Reached" however it's written). "Prompt suggested" needs its full stop, or she says "prompt is suggested". Every file was
 checked by transcribing it back.

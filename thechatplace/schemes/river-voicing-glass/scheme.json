@@ -26,6 +26,8 @@
     "ServiceTrouble": "custom:ServiceTrouble.wav",
     "UsageWarning": "custom:UsageWarning.wav",
     "Compacted": "custom:Compacted.wav",
-    "PeerMessage": "custom:PeerMessage.wav"
+    "PeerMessage": "custom:PeerMessage.wav",
+    "PromptSuggested": "custom:PromptSuggested.wav",
+    "ListEnd": "custom:ListEnd.wav"
   }
 }
